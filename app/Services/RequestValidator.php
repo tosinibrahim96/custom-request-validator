@@ -151,7 +151,9 @@ class RequestValidator
 
     if (!method_exists($this, "validate$rule")) {
 
-      $this->addToErrorBag($attribute, "Unknown validation rule $rule detected");
+      $rule = strtolower($rule);
+
+      $this->addToErrorBag($attribute, "Unknown validation rule '$rule' detected");
 
       return;
     }
